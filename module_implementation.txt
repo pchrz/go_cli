@@ -1,0 +1,34 @@
+To better implement the book’s examples, place your code in the $HOME/pragprog.com/rggo directory with sub-directories for each chapter. For example, initialize a new module like this:
+$mkdir -p $HOME/pragprog.com/rggo/firstProgram/wc
+
+$ go mod init pragprog.com/rggo/firstProgram/wc
+ 	go: creating new go.mod: module pragprog.com/rggo/firstProgram/wc
+This directory is a suggestion. As long as you keep the same module path identifier when initializing the module, you can change the directory where you store the code, and you’re still able to follow the examples as is.
+
+Upon initializing a new module, Go creates a file go.mod in the root of your module directory and records the specific version of Go and the module path, like this:
+
+ 	$ cat go.mod
+ 	module pragprog.com/rggo/firstProgram/wc
+ 	
+ 	go 1.16
+If your code has external dependencies, you can record the specific version required in the go.mod file like this:
+
+ 	$ cat go.mod
+ 	module pragprog.com/rggo/workingFiles/mdp
+ 	
+ 	go 1.16
+ 	
+ 	require (
+ 	        github.com/microcosm-cc/bluemonday v1.0.2
+ 	        github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	        github.com/russross/blackfriday/v2 v2.0.1
+ 	        github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
+		)
+
+Modules are fully integrated with the Go tooling. If you don’t add the dependencies directly to your go.mod file, Go will automatically do that for you when you download it using go get. If you try to test or build your program using go test or go build, Go reports a missing dependency with a suggestion for how to obtain it. Go also creates a checksum file go.sum recording the specific checksum of each module used to build your program to ensure the next build uses the same version:
+
+ 	$ cat go.sum
+ 	github.com/microcosm-cc/bluemonday v1.0.2
+        ...
+
+By using the files go.mod and go.sum, you ensure you’re building the application with the same dependencies as the original developer. You can use these files provided with the book’s source code to ensure your code will build exactly as shown in the book’s examples.
