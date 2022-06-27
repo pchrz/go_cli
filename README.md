@@ -6,3 +6,6 @@ https://pragprog.com/titles/rggo/powerful-command-line-applications-in-go/
 - Move my scripting and automation code from Bash and others to GO. 
 - Deploy applications in Docker.
 - Interacting with REST-API's in a better way.
+
+  -- Completed Projects --
+- wc - Word Counter Clone
