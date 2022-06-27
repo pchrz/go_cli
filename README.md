@@ -7,5 +7,5 @@ https://pragprog.com/titles/rggo/powerful-command-line-applications-in-go/
 - Deploy applications in Docker.
 - Interacting with REST-API's in a better way.
 
-  -- Completed Projects --
+-- Completed Projects --
 - wc - Word Counter Clone
