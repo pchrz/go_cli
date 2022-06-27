@@ -1,0 +1,48 @@
+===============================
+--------- TESTING -------------
+===============================
+
+To use the test functionality::
+
+# go test -v
+
+This will run the test and give you the output.
+
+EXAMPLE:
+
+[pch@river wc]$ go test -v
+=== RUN   TestCountWords
+--- PASS: TestCountWords (0.00s)
+PASS
+ok      pragprog.com/rggo/firstProgram/wc       0.001s
+
+
+Then you can add functions to the test, and it will run each one.
+[pch@river wc]$ go test -v
+=== RUN   TestCountWords
+--- PASS: TestCountWords (0.00s)
+=== RUN   TestCountLines
+--- PASS: TestCountLines (0.00s)
+PASS
+ok      pragprog.com/rggo/firstProgram/wc       0.001s
+
+That is so cool. This makes testing output so easy, but relies on the quality
+of the written test. Maybe multiple are needed for edge cases.
+
+===============================
+-------- BUILDING -------------
+===============================
+
+If the tests pass you can compile using go build.
+
+# go build
+
+This will create a working wc executable in the current directory. 
+
+You can then test the program by passing an input string.
+
+EXAMPLE:
+
+[pch@river wc]$ echo "My first command line tool with Go" | ./wc
+7
+
